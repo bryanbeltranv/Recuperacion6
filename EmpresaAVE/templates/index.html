@@ -1,0 +1,82 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+   <title>{% block title %}Tabla{% endblock %}</title>
+</head>
+<body>
+   <td>{{registro}}</td>
+  <br/>
+<h3>TABLA ORDEN</h3>
+<table >
+
+    <tr>
+        <td>Id Orden</td>
+         <td>Fecha</td>   
+    </tr>
+
+{%for a in obj%}
+    <tr>
+      <td>{{a.id_orden}}</td> 
+      <td>{{a.fecha}} </td>
+    </tr>
+{%endfor%}
+  </table>  
+  <br/>
+<h3>TABLA PRODUCTOS</h3>
+  <table >
+
+    <tr>
+        <td>Id Orden</td>
+        <td>Descripcion</td>
+         <td>Precio</td>   
+    </tr>
+
+{%for b in obj1%}
+    <tr>
+      <td>{{b.orden_id}}</td> 
+      <td>{{b.descripcion}} </td>
+      <td>{{b.precio}} </td>
+    </tr>
+{%endfor%}
+  </table> 
+ <br/>
+<h3>TABLA IMPUESTOS</h3>
+<table >
+
+    <tr>
+        <td>Id Orden</td>
+        <td>Impuesto</td>
+         <td>Valor</td>   
+    </tr>
+
+{%for c in obj2%}
+    <tr>
+      <td>{{c.id}}</td> 
+      <td>{{c.nombre}}</td>
+      <td>{{c.valor}} </td>
+    </tr>
+{%endfor%}
+</table>
+
+  <h3>TABLA TOTALES</h3>
+<table  >
+
+    <tr>
+        <td>Valor Impuesto</td>
+        <td>Valor Producto</td>
+         <td>Totalr</td>   
+    </tr>
+{%for b in obj2%}
+    <tr>
+      <td>{{vi}}</td> 
+      <td>{{vtp}}</td>
+      <td>{{total}} </td>
+    </tr>
+    {%endfor%}
+</table>
+<script src="{% static 'js/bootstrap.min.css' %}"></script>
+</body>
+</html>
